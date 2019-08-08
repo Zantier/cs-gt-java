@@ -1,0 +1,71 @@
+.hljs-comment,
+.hljs-quote {
+  color: #7F7F7F;
+}
+
+/* Tomorrow Red
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+  color: #c82829;
+}*/
+
+/* Pink */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+/*.hljs-params,*/
+.hljs-meta,
+.hljs-link {
+  color: #FF84E6;
+}
+
+/* Tomorrow Yellow
+.hljs-attribute {
+  color: #eab700;
+}*/
+
+/* Orange */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+  color: #FFB678;
+}
+
+/* Green */
+.hljs-title,
+.hljs-type {
+	color: #5ECBB5;
+}
+.hljs-function > .hljs-title {
+  color: inherit;
+}
+
+/* Blue */
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #95B5FF;
+}
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  background: #555;
+  color: #f0f0f0;
+  padding: 0.5em;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
