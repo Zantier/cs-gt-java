@@ -19,6 +19,8 @@ body {
 }
 
 .content {
+  display: inline-block; /* width becomes contents-width */
+  min-width: 100%; /* width = max(contents-width, viewport-width) */
   padding: 20px;
   background: #202020;
   color: #d0d0d0;
