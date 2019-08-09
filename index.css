@@ -42,6 +42,53 @@ pre {
   margin: 0;
 }
 
+.code-table {
+  display: grid;
+  grid-template-columns: auto;
+  justify-content: start;
+}
+
+.col-head {
+  display: none;
+  font-weight: bold;
+}
+
+.col1, .col2-2, .col3-2, .col-head {
+  padding: 30px 20px;
+}
+.col2-1, .col3-1 {
+  padding: 5px 20px;
+}
+.col2-2, .col3-2 {
+  padding: 5px 20px 30px;
+}
+
+.col1 {
+  border-top: solid 5px #303030;
+  max-width: 500px;
+}
+
+@media (min-width: 960px) {
+  .code-table {
+    grid-template-columns: 250px auto auto;
+  }
+
+  .col-head {
+    display: block;
+  }
+
+  .col2-1, .col3-1 {
+    display: none;
+  }
+  .col1, .col2-2, .col3-2 {
+    padding: 30px 20px;
+    border-top: solid 5px #303030;
+  }
+}
+
+
+
+
 table {
   border-collapse: collapse;
   border-spacing: 0;

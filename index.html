@@ -11,49 +11,51 @@
 <body>
   <div class="content">
     <h1>Reasons why Java sucks compared to C#</h1>
-    <table>
-      <tr>
-        <th>Reason</th>
-        <th>C#</th>
-        <th>Java</th>
-      </tr>
-      <tr>
-        <td>Generics can't hold primitive types e.g. int.</td>
-        <td><pre><code class="cs"><span class="hljs-type">List</span>&lt;int&gt;</code></pre></td>
-        <td><pre><code class="java"><span class="hljs-type">ArrayList</span>&lt;<span class="hljs-type">Integer</span>&gt;</code></pre></td>
-      </tr>
-      <tr>
-        <td>You can't use square brackets (<a href="https://msdn.microsoft.com/en-us/library/6x16t2tx.aspx">indexers</a>) to get and set elements in anything other than arrays.</td>
-        <td>
+    <div class="code-table">
+      <div class="col-head"></div>
+      <div class="col-head">C#</div>
+      <div class="col-head">Java</div>
+      <div class="col1">Generics can't hold primitive types e.g. int.</div>
+      <div class="col2-1">C#</div>
+      <div class="col2-2">
+        <pre><code class="cs"><span class="hljs-type">List</span>&lt;int&gt;</code></pre>
+      </div>
+      <div class="col3-1">Java</div>
+      <div class="col3-2">
+        <pre><code class="java"><span class="hljs-type">ArrayList</span>&lt;<span class="hljs-type">Integer</span>&gt;</code></pre>
+      </div>
+      <div class="col1">You can't use square brackets (<a href="https://msdn.microsoft.com/en-us/library/6x16t2tx.aspx">indexers</a>) to get and set elements in anything other than arrays.</div>
+      <div class="col2-1">C#</div>
+      <div class="col2-2">
 <pre><code class="cs">intList[i] = 3;
 dict["hi"] += 4;
 </code></pre>
-        </td>
-        <td>
+      </div>
+      <div class="col3-1">Java</div>
+      <div class="col3-2">
 <pre><code class="java">intList.set(i, 3);
 dict.set("hi", dict.get("hi") + 4);
 </code></pre>
-        </td>
-      </tr>
-      <tr>
-        <td>Streams are more cumbersome than Linq.</td>
-        <td>
+      </div>
+      <div class="col1">Streams are more cumbersome than Linq.</div>
+      <div class="col2-1">C#</div>
+      <div class="col2-2">
 <pre><code class="cs">string.Join(", ",
   ints.Where(i => i % 2 == 0)
 );
 </code></pre>
-        </td>
-        <td>
+      </div>
+      <div class="col3-1">Java</div>
+      <div class="col3-2">
 <pre><code class="java">ints.stream()
   .filter(i -> i % 2 == 0)
   .mapToObj(<span class="hljs-type">Integer</span>::toString)
   .collect(<span class="hljs-type">Collectors</span>.joining(", "));
 </code></pre>
-        </td>
-      </tr>
-      <tr>
-        <td>Arrays don't implement the List interface.</td>
-        <td>
+      </div>
+      <div class="col1">Arrays don't implement the List interface.</div>
+      <div class="col2-1">C#</div>
+      <div class="col2-2">
 <pre><code class="cs">void PrintElements(<span class="hljs-type">IList</span>&lt;int&gt; lst) {
   // lst is an array/List/etc.
   foreach (int x in lst) {
@@ -61,8 +63,9 @@ dict.set("hi", dict.get("hi") + 4);
   }
 }
 </code></pre>
-        </td>
-        <td>
+      </div>
+      <div class="col3-1">Java</div>
+      <div class="col3-2">
 <pre><code class="java">void printElements(<span class="hljs-type">List</span>&lt;<span class="hljs-type">Integer</span>&gt; lst) {
   // lst can't be an array.
   for (int x : lst) {
@@ -76,11 +79,10 @@ void printElements(<span class="hljs-type">Integer</span>[] lst) {
   }
 }
 </code></pre>
-        </td>
-      </tr>
-      <tr>
-        <td>No primitive unsigned byte type. Seriously, what? How often are signed bytes useful?</td>
-        <td>
+      </div>
+      <div class="col1">No primitive unsigned byte type. Seriously, what? How often are signed bytes useful?</div>
+      <div class="col2-1">C#</div>
+      <div class="col2-2">
 <pre><code class="cs">byte[] bs = GetSomeBytes();
 
 foreach (byte b in bs) {
@@ -88,8 +90,9 @@ foreach (byte b in bs) {
     "Unsigned byte: " + b);
 }
 </code></pre>
-        </td>
-        <td>
+      </div>
+      <div class="col3-1">Java</div>
+      <div class="col3-2">
 <pre><code class="java">byte[] bs = getSomeBytes();
 
 for (byte b : bs) {
@@ -98,19 +101,19 @@ for (byte b : bs) {
     "Unsigned byte: " + ub);
 }
 </code></pre>
-      </td>
-      </tr>
-      <tr>
-        <td>No <a href="https://msdn.microsoft.com/en-us/library/x9fsa0sw.aspx">property</a> support.</td>
-        <td>
+    </div>
+      <div class="col1">No <a href="https://msdn.microsoft.com/en-us/library/x9fsa0sw.aspx">property</a> support.</div>
+      <div class="col2-1">C#</div>
+      <div class="col2-2">
 <pre><code class="cs">public double Hours
 {
   get { return seconds / 3600; }
   set { seconds = value * 3600; }
 }
 </code></pre>
-        </td>
-        <td>
+      </div>
+      <div class="col3-1">Java</div>
+      <div class="col3-2">
 <pre><code class="java">public double getHours() {
   return seconds / 3600;
 }
@@ -119,11 +122,10 @@ public void setHours(double hours) {
   seconds = hours * 3600;
 }
 </code></pre>
-        </td>
-      </tr>
-      <tr>
-        <td>No <a href="https://msdn.microsoft.com/en-us/library/74b4xzyw.aspx">overflow checking</a>.</td>
-        <td>
+      </div>
+      <div class="col1">No <a href="https://msdn.microsoft.com/en-us/library/74b4xzyw.aspx">overflow checking</a>.</div>
+      <div class="col2-1">C#</div>
+      <div class="col2-2">
 <pre><code class="cs">// (Enable overflow checking in
 // compiler options.)
 
@@ -131,24 +133,25 @@ int a = int.MaxValue
 // Throws OverflowException.
 a = a + 1
 </code></pre>
-        </td>
-        <td>
+      </div>
+      <div class="col3-1">Java</div>
+      <div class="col3-2">
 <pre><code class="java">int a = <span class="hljs-type">Integer</span>.MAX_VALUE;
 // Assigns -2147483648 to a.
 a = a + 1;
 </code></pre>
-        </td>
-      </tr>
-      <tr>
-        <td>No <a href="https://msdn.microsoft.com/en-us/library/14akc2c7.aspx">reference</a>/<a href="https://msdn.microsoft.com/en-us/library/t3c3bfhx.aspx">output</a> parameters.</td>
-        <td>
+      </div>
+      <div class="col1">No <a href="https://msdn.microsoft.com/en-us/library/14akc2c7.aspx">reference</a>/<a href="https://msdn.microsoft.com/en-us/library/t3c3bfhx.aspx">output</a> parameters.</div>
+      <div class="col2-1">C#</div>
+      <div class="col2-2">
 <pre><code class="cs">int num;
 if (int.TryParse("2", out num)) {
   <span class="hljs-type">Console</span>.WriteLine(num);
 }
 </code></pre>
-        </td>
-        <td>
+      </div>
+      <div class="col3-1">Java</div>
+      <div class="col3-2">
 <pre><code class="java"><span class="hljs-type">Integer</span> num = null;
 try {
   num = <span class="hljs-type">Integer</span>.parseInt("2");
@@ -159,17 +162,17 @@ if (num != null) {
   <span class="hljs-type">System</span>.out.println(num);
 }
 </code></pre>
-        </td>
-      </tr>
-      <tr>
-        <td>No <a href="https://msdn.microsoft.com/en-us/library/dd264739.aspx">optional arguments</a>.</td>
-        <td>
+      </div>
+      <div class="col1">No <a href="https://msdn.microsoft.com/en-us/library/dd264739.aspx">optional arguments</a>.</div>
+      <div class="col2-1">C#</div>
+      <div class="col2-2">
 <pre><code class="cs">void PrintNum(int i, string message = "Num") {
   <span class="hljs-type">Console</span>.WriteLine($"{message}: {i}");
 }
 </code></pre>
-        </td>
-        <td>
+      </div>
+      <div class="col3-1">Java</div>
+      <div class="col3-2">
 <pre><code class="java">void printNum(int i, <span class="hljs-type">String </span>message) {
   <span class="hljs-type">System</span>.out.printf("%s: %d\n", message, i);
 }
@@ -178,11 +181,10 @@ void printNum(int i) {
   printNum(i, "Num");
 }
 </code></pre>
-        </td>
-      </tr>
-      <tr>
-        <td>No <a href="https://msdn.microsoft.com/en-us/library/8edha89s.aspx">operator overloading</a>.</td>
-        <td>
+      </div>
+      <div class="col1">No <a href="https://msdn.microsoft.com/en-us/library/8edha89s.aspx">operator overloading</a>.</div>
+      <div class="col2-1">C#</div>
+      <div class="col2-2">
 <pre><code class="cs">public class Main {
   public static void Main(string[] args) {
     <span class="hljs-type">Vector</span> v1 = new Vector(1, 2);
@@ -201,8 +203,9 @@ public class Vector {
   }
 }
 </code></pre>
-        </td>
-        <td>
+      </div>
+      <div class="col3-1">Java</div>
+      <div class="col3-2">
 <pre><code class="java">public class Main {
   public static void main(<span class="hljs-type">String</span>[] args) {
     <span class="hljs-type">Vector</span> v1 = new Vector(1, 2);
@@ -221,9 +224,8 @@ public class Vector {
   }
 }
 </code></pre>
-        </td>
-      </tr>
-    </table>
+      </div>
+    </div>
   </div>
 
   <link rel="stylesheet" href="my-hljs.css">
